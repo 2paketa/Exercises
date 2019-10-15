@@ -20,10 +20,12 @@ namespace BuildingSimulator
             Set();
             dict = new Dictionary<string, int>();
             dict.Add("Building", Building);
-            dict.Add("GroundFloor",GroundFloor);
+            dict.Add("Groundfloor",GroundFloor);
             dict.Add("Floor", Floor);
             dict.Add("Office", Office);
             dict.Add("Lift", Lift);
+            dict.Add("Cycles", Cycles);
+            dict.Add("Visitors", Visitors);
         }
 
         public static Capacities Instance()

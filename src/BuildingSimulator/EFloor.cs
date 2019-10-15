@@ -6,14 +6,24 @@ namespace BuildingSimulator
 {
     public class EFloor: ILocation
     {
-        public List<Visitor> Visitor { get; set; }
+        public List<Visitor> Visitors { get; set; }
         public Office[] offices;
-        public int CurrentCapacity { get; set; }
-        public int MaxCapacity { get; set; }
+        private int maxCapacity;
+        private int number = 1;
 
-        public EFloor(int MaxCapacity)
+        public int CurrentCapacity { get; set; }
+        public int MaxCapacity { get {return maxCapacity;}}
+
+        public int Number {get {return number;}}
+
+        public bool IsThereSpace { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public EFloor()
         {
-            this.MaxCapacity = MaxCapacity;
+            var capacities = Capacities.Instance();
+            this.maxCapacity = capacities.Get("Floor");
+
+            number ++;
             int i = 0;
             while (i < 10)
             {

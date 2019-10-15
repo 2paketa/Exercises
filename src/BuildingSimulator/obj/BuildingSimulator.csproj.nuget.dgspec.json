@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\m.prekas\\Tests\\src\\BuildingSimulator\\BuildingSimulator.csproj": {}
+    "C:\\Users\\m.prekas\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\m.prekas\\Tests\\Common\\BuldingCommon\\BuldingCommon.csproj": {
+    "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\m.prekas\\Tests\\Common\\BuldingCommon\\BuldingCommon.csproj",
+        "projectUniqueName": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj",
         "projectName": "BuldingCommon",
-        "projectPath": "C:\\Users\\m.prekas\\Tests\\Common\\BuldingCommon\\BuldingCommon.csproj",
+        "projectPath": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj",
         "packagesPath": "C:\\Users\\m.prekas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m.prekas\\Tests\\Common\\BuldingCommon\\obj\\",
+        "outputPath": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\m.prekas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -54,14 +54,14 @@
         }
       }
     },
-    "C:\\Users\\m.prekas\\Tests\\src\\BuildingSimulator\\BuildingSimulator.csproj": {
+    "C:\\Users\\m.prekas\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\m.prekas\\Tests\\src\\BuildingSimulator\\BuildingSimulator.csproj",
+        "projectUniqueName": "C:\\Users\\m.prekas\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj",
         "projectName": "BuildingSimulator",
-        "projectPath": "C:\\Users\\m.prekas\\Tests\\src\\BuildingSimulator\\BuildingSimulator.csproj",
+        "projectPath": "C:\\Users\\m.prekas\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj",
         "packagesPath": "C:\\Users\\m.prekas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m.prekas\\Tests\\src\\BuildingSimulator\\obj\\",
+        "outputPath": "C:\\Users\\m.prekas\\Exercises\\src\\BuildingSimulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\m.prekas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -75,8 +75,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\m.prekas\\Tests\\Common\\BuldingCommon\\BuldingCommon.csproj": {
-                "projectPath": "C:\\Users\\m.prekas\\Tests\\Common\\BuldingCommon\\BuldingCommon.csproj"
+              "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj": {
+                "projectPath": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj"
               }
             }
           }

@@ -5,13 +5,20 @@ namespace BuildingSimulator
 {
     public class GroundFloor: ILocation
     {
-        public GroundFloor(int MaxCapacity)
+        private int maxCapacity;
+
+        public GroundFloor()
         {
-            this.MaxCapacity = MaxCapacity;
+            var capacities = Capacities.Instance();
+            this.maxCapacity = capacities.Get("Groundfloor");
         }
 
-        public List<Visitor> Visitor { get; set; }
+        public List<Visitor> Visitors { get; set; }
         public int CurrentCapacity { get; set; }
-        public int MaxCapacity { get; set; }
+        public int MaxCapacity { get {return maxCapacity;} }
+
+        public int Number => 0;
+
+        public bool IsThereSpace { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

@@ -12,3 +12,17 @@ C:\Users\m.prekas\Tests\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSi
 C:\Users\m.prekas\Tests\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuldingCommon.dll
 C:\Users\m.prekas\Tests\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuldingCommon.pdb
 C:\Users\m.prekas\Tests\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSimulator.csproj.CopyComplete
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuildingSimulator.exe
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuildingSimulator.deps.json
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuildingSimulator.runtimeconfig.json
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuildingSimulator.runtimeconfig.dev.json
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuildingSimulator.dll
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuildingSimulator.pdb
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuldingCommon.dll
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\bin\Debug\netcoreapp3.0\BuldingCommon.pdb
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSimulator.csprojAssemblyReference.cache
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSimulator.AssemblyInfoInputs.cache
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSimulator.AssemblyInfo.cs
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSimulator.csproj.CopyComplete
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSimulator.dll
+C:\Users\m.prekas\Exercises\src\BuildingSimulator\obj\Debug\netcoreapp3.0\BuildingSimulator.pdb

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj": {}
+    "C:\\Users\\m.prekas\\Exercises\\test\\BuildingTests\\BuildingTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj": {
+    "C:\\Users\\m.prekas\\Exercises\\test\\BuildingTests\\BuildingTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj",
-        "projectName": "BuldingCommon",
-        "projectPath": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj",
+        "projectUniqueName": "C:\\Users\\m.prekas\\Exercises\\test\\BuildingTests\\BuildingTests.csproj",
+        "projectName": "BuildingTests",
+        "projectPath": "C:\\Users\\m.prekas\\Exercises\\test\\BuildingTests\\BuildingTests.csproj",
         "packagesPath": "C:\\Users\\m.prekas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\obj\\",
+        "outputPath": "C:\\Users\\m.prekas\\Exercises\\test\\BuildingTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\m.prekas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -35,6 +35,24 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
