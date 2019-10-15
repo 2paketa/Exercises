@@ -1,0 +1,8 @@
+C:\Users\m.prekas\Tests\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.csprojAssemblyReference.cache
+C:\Users\m.prekas\Tests\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.AssemblyInfoInputs.cache
+C:\Users\m.prekas\Tests\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.AssemblyInfo.cs
+C:\Users\m.prekas\Tests\Common\BuldingCommon\bin\Debug\netcoreapp3.0\BuldingCommon.deps.json
+C:\Users\m.prekas\Tests\Common\BuldingCommon\bin\Debug\netcoreapp3.0\BuldingCommon.dll
+C:\Users\m.prekas\Tests\Common\BuldingCommon\bin\Debug\netcoreapp3.0\BuldingCommon.pdb
+C:\Users\m.prekas\Tests\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.dll
+C:\Users\m.prekas\Tests\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.pdb
