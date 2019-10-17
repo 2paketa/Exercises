@@ -13,13 +13,14 @@ namespace BuildingSimulatorTests
         public void Test1()
         {
             //Arrange
+            Random random = new Random();
             Lift lift = new Lift();
             var gFloor = LocationFactory.GetLocation(0) as GroundFloor;
             for (int i = 0; i < 50; i++)
-                gFloor.Enter(new Visitor());
-            int expected = 0;
+                gFloor.Enter(new Visitor(random.Next(0, 3), random.Next(0, 9)));
+            int expected = 1;
             //Act
-            lift.moveUp();
+            lift.Operate();
             int actual = lift.floorNumber;
             //Assert
             Assert.Equal(expected, actual);

@@ -19,7 +19,7 @@ namespace BuildingSimulator
                 case var d when floorNumber > eFloors.Length:
                  return null;
                 default:
-                if (eFloors == null)
+                if (eFloors[floorNumber - 1] == null)
                 {
                     for (int i = 0; i < eFloors.Length; i++)
                     {

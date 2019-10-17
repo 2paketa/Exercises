@@ -6,31 +6,26 @@ namespace BuildingSimulator
 {
     public class Lift
     {
-        List<Visitor> Visitors { get {return Visitors;} set {} }
-
-        ILocation currentFloor { get{ return LocationFactory.GetLocation(floorNumber); } }
+        public List<Visitor> Visitors { get; set; }
+        ILocation currentFloor { get { return LocationFactory.GetLocation(floorNumber); } }
         private int maxCapacity;
         public int CurrentCapacity { get {return Visitors.Count;} }
         readonly int cycles;
         public int MaxCapacity { get {return maxCapacity;} }
-        public int floorNumber = 0;
-
-        
+        public int floorNumber;
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;}}
         public Lift()
         {
-            var capacities = Capacities.Instance();
-            maxCapacity = 100;
+            //var capacities = Capacities.Instance();
+            Visitors = new List<Visitor>();
+            maxCapacity = 50;
             cycles = 10;
         }
 
         public void Operate()
         {
-            while (cycles > 0)
-            {
-                // moveUp();
-                // moveDown();       
-            }
+                moveUp();
+                //moveDown();
         }
 
 
@@ -42,45 +37,55 @@ namespace BuildingSimulator
         
         public Visitor Exit()
         {
-            Visitor visitor = Visitors.First();
+            Visitor visitor = Visitors.TakeWhile(x => x.FloorNumber == floorNumber).FirstOrDefault();
             Visitors.Remove(visitor);
             return visitor;
         }
 
-        public void moveUp()
+        private void moveUp()
         {
-            
             while (currentFloor != null)
             {
-                while (IsThereSpace && currentFloor.CurrentCapacity != 0)
+                if (floorNumber == 0) 
                 {
-                    Enter(currentFloor.Exit());
+                    while (IsThereSpace && currentFloor.CurrentCapacity > 0)
+                    {
+                        Enter(currentFloor.Exit());
+                    }
                 }
-
+            else
+            {
                 while (currentFloor.IsThereSpace && CurrentCapacity != 0)
                 {
-                    Exit();
-                }
-                floorNumber++;
-            }
-        }
-
-        public void moveDown()
-        {
-            floorNumber--;
-            while (floorNumber > 0)
-            {
-                while (IsThereSpace)
-                {
-                    Enter(currentFloor.Exit());
-                }
-
-                while (currentFloor.IsThereSpace)
-                {
+                    Visitor visitor = Exit();
+                    if (visitor == null)
+                    {
+                        break;
+                    }
                     currentFloor.Enter(Exit());
                 }
-                floorNumber--;
+
             }
+            floorNumber++;
+            }
+        floorNumber--;
         }
+
+        //private void moveDown()
+        //{
+        //    while (floorNumber > 0)
+        //    {
+        //        while (IsThereSpace)
+        //        {
+        //            Enter(currentFloor.Exit());
+        //        }
+
+        //        while (currentFloor.IsThereSpace)
+        //        {
+        //            currentFloor.Enter(Exit());
+        //        }
+        //        floorNumber--;
+        //    }
+        //}
     }
 }

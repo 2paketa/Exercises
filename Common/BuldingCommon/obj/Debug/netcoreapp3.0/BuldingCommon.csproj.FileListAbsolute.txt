@@ -14,3 +14,11 @@ C:\Users\m.prekas\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\Bulding
 C:\Users\m.prekas\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.AssemblyInfo.cs
 C:\Users\m.prekas\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.dll
 C:\Users\m.prekas\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.pdb
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\bin\Debug\netcoreapp3.0\BuldingCommon.deps.json
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\bin\Debug\netcoreapp3.0\BuldingCommon.dll
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\bin\Debug\netcoreapp3.0\BuldingCommon.pdb
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.csprojAssemblyReference.cache
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.AssemblyInfoInputs.cache
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.AssemblyInfo.cs
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.dll
+C:\Users\Manos\Source\Repos\Exercises\Common\BuldingCommon\obj\Debug\netcoreapp3.0\BuldingCommon.pdb

@@ -5,7 +5,7 @@ namespace BuildingSimulator
 {
     public interface ILocation
     {
-        List<Visitor> Visitors { get; set; }
+        List<Visitor> WelcomeRoom { get; set; }
         int CurrentCapacity { get; }
         int MaxCapacity { get; }
 

@@ -6,12 +6,27 @@ namespace BuildingSimulator
 {
     public class EFloor: ILocation
     {
-        public List<Visitor> Visitors { get {return Visitors;} set {} }
-        public Office[] offices;
+        public List<Visitor> WelcomeRoom { get; set; }
+        private Office[] offices = new Office[10];
         private int maxCapacity;
         private int number;
-
-        public int CurrentCapacity { get; }
+        Random random = new Random();
+        public int CurrentCapacity {
+            get
+            {
+                return WelcomeRoom.Count + officesCurrentCapacity;
+            }
+        }
+        public int officesCurrentCapacity
+        {
+            get 
+            {
+                int officesCurrentCapacity = 0;
+                for (int i = 0; i < offices.Length; i++)
+                    officesCurrentCapacity += offices[i].CurrentCapacity;
+                return officesCurrentCapacity;
+            }
+        }
         public int MaxCapacity { get {return maxCapacity;}}
 
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
@@ -20,23 +35,34 @@ namespace BuildingSimulator
         {
             // var capacities = Capacities.Instance();
             // this.maxCapacity = capacities.Get("Floor");
-            maxCapacity = 50;
+            WelcomeRoom = new List<Visitor>();
+            maxCapacity = 99;
             int i = 0;
             while (i < 10)
             {
                 offices[i] = new Office();
+                i++;
             }
         }
 
         public void Enter(Visitor visitor)
         {
-            Visitors.Add(visitor);
+            var officeToEnter = offices[visitor.FloorNumber];
+
+            if (officeToEnter.IsThereSpace)
+            {
+                officeToEnter.Enter(visitor);
+            }
+            else
+            {
+                WelcomeRoom.Add(visitor);
+            }
+             
         }
         
         public Visitor Exit()
         {
-            Visitor visitor = Visitors.First();
-            Visitors.Remove(visitor);
+            Visitor visitor = offices[random.Next(offices.Length - 1)].Exit();
             return visitor;
         }
     }
