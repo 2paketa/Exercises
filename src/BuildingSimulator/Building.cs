@@ -16,33 +16,22 @@ namespace BuildingSimulator
 
         public  void Main()
         {
-            eFloor = new EFloor();
-            groundFloor = new GroundFloor();
+            int i = 1;
+            while (i < eFloor.Length)
+            {
+                var newFloor = LocationFactory.GetLocation(i) as EFloor;
+                eFloor[i - 1] = newFloor;
+                i++;
+            }
+            groundFloor = LocationFactory.GetLocation(0) as GroundFloor;
             lift = new Lift();
-
+            // lift.Operate();
             
         }
 
-        EFloor eFloor;
+        EFloor[] eFloor = new EFloor[4];
         GroundFloor groundFloor;
         Lift lift;
-
-        public ILocation getFloor(int numberOfWheels)
-        {
-            switch (numberOfWheels)
-            {
-                case 1:
-                    return eFloor[0];
-                case 2:
-                    return eFloor[1];
-                case 3:
-                    return eFloor[2];
-                case 4:
-                    return eFloor[3];
-                default :
-                    return groundFloor;
-            }
-        }
 
     }
 }

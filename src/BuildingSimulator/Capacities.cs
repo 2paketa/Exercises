@@ -45,12 +45,12 @@ namespace BuildingSimulator
         public static void Set()
         {
             Console.WriteLine("Enter building capacity: ");
-            Building = BuildingCommon.BuildingCommon.UserInput(33, "Building capacity should be more than 33", (x) => x <
-            30);
+            Building = BuildingCommon.BuildingCommon.UserInput(33, "Building capacity should be more than 33", (x) => x < 30);
+
             Console.WriteLine("Enter Groundfloor capacity: ");
             GroundFloor = BuildingCommon.BuildingCommon.UserInput(Building / 2, "Groundfloor capacity should be between 1 and ");
+            
             Console.WriteLine("Enter floor capacity: ");
-
             Floor = BuildingCommon.BuildingCommon.UserInput(Building / 3, "floor capacity should be between 1 and ");
 
             Console.WriteLine("Enter office capacity: ");
@@ -60,10 +60,10 @@ namespace BuildingSimulator
             Lift = BuildingCommon.BuildingCommon.UserInput(Office, "lift capacity should be more than " + Office + ": ", (x) => x < Office);
 
             Console.WriteLine("Enter lift operating cycles: ");
-            int lCycles = Console.ReadLine().GetValidInt();
+            Cycles = Console.ReadLine().GetValidInt();
 
             Console.WriteLine("Enter number of visitors: ");
-            int kVisitors = Console.ReadLine().GetValidInt();
+            Visitors = Console.ReadLine().GetValidInt();
         }
     }
 }

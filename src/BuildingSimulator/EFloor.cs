@@ -6,24 +6,21 @@ namespace BuildingSimulator
 {
     public class EFloor: ILocation
     {
-        public List<Visitor> Visitors { get; set; }
+        public List<Visitor> Visitors { get {return Visitors;} set {Visitors.OrderBy(x => x.PriorityNumber);} }
         public Office[] offices;
         private int maxCapacity;
-        private int number = 1;
+        private int number;
 
-        public int CurrentCapacity { get; set; }
+        public int CurrentCapacity { get; }
         public int MaxCapacity { get {return maxCapacity;}}
 
-        public int Number {get {return number;}}
-
-        public bool IsThereSpace { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
 
         public EFloor()
         {
-            var capacities = Capacities.Instance();
-            this.maxCapacity = capacities.Get("Floor");
-
-            number ++;
+            // var capacities = Capacities.Instance();
+            // this.maxCapacity = capacities.Get("Floor");
+            maxCapacity = 250;
             int i = 0;
             while (i < 10)
             {
@@ -31,5 +28,16 @@ namespace BuildingSimulator
             }
         }
 
+        public void Enter(Visitor visitor)
+        {
+            Visitors.Add(visitor);
+        }
+        
+        public Visitor Exit()
+        {
+            Visitor visitor = Visitors.First();
+            Visitors.Remove(visitor);
+            return visitor;
+        }
     }
 }

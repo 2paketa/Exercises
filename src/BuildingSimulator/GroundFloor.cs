@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BuildingSimulator
 {
@@ -9,16 +10,28 @@ namespace BuildingSimulator
 
         public GroundFloor()
         {
-            var capacities = Capacities.Instance();
-            this.maxCapacity = capacities.Get("Groundfloor");
+            // var capacities = Capacities.Instance();
+            // this.maxCapacity = capacities.Get("Groundfloor");
+            maxCapacity = 500;
         }
 
-        public List<Visitor> Visitors { get; set; }
-        public int CurrentCapacity { get; set; }
+        public List<Visitor> Visitors { get {return Visitors;} set {Visitors.OrderBy(x => x.PriorityNumber);} }
+        public int CurrentCapacity { get { return Visitors.Count;}}
         public int MaxCapacity { get {return maxCapacity;} }
 
-        public int Number => 0;
+        public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
 
-        public bool IsThereSpace { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public void Enter(Visitor visitor)
+        {
+            Visitors.Add(visitor);
+        }
+        
+        public Visitor Exit()
+        {
+            Visitor visitor = Visitors.First();
+            Visitors.Remove(visitor);
+            return visitor;
+        }
+
     }
 }
