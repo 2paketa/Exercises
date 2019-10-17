@@ -12,7 +12,7 @@ namespace BuildingSimulator
         {
             // var capacities = Capacities.Instance();
             // this.maxCapacity = capacities.Get("Groundfloor");
-            maxCapacity = 100;
+            maxCapacity = 50;
         }
 
         public List<Visitor> Visitors { get {return Visitors;} set {} }

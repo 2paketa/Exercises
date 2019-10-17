@@ -14,7 +14,7 @@ namespace BuildingSimulatorTests
         {
             //Arrange
             Lift lift = new Lift();
-            var gFloor = LocationFactory.GetLocation(0);
+            var gFloor = LocationFactory.GetLocation(0) as GroundFloor;
             for (int i = 0; i < 50; i++)
                 gFloor.Enter(new Visitor());
             int expected = 0;

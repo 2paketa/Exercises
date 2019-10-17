@@ -20,7 +20,7 @@ namespace BuildingSimulator
         {
             // var capacities = Capacities.Instance();
             // this.maxCapacity = capacities.Get("Floor");
-            maxCapacity = 100;
+            maxCapacity = 50;
             int i = 0;
             while (i < 10)
             {

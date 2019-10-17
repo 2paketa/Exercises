@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace BuildingSimulator
 {
-
     public class Lift
     {
         List<Visitor> Visitors { get {return Visitors;} set {} }
@@ -15,6 +14,8 @@ namespace BuildingSimulator
         readonly int cycles;
         public int MaxCapacity { get {return maxCapacity;} }
         public int floorNumber = 0;
+
+        
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;}}
         public Lift()
         {
@@ -48,6 +49,7 @@ namespace BuildingSimulator
 
         public void moveUp()
         {
+            
             while (currentFloor != null)
             {
                 while (IsThereSpace && currentFloor.CurrentCapacity != 0)
@@ -57,7 +59,7 @@ namespace BuildingSimulator
 
                 while (currentFloor.IsThereSpace && CurrentCapacity != 0)
                 {
-                    currentFloor.Enter(Exit());
+                    Exit();
                 }
                 floorNumber++;
             }
