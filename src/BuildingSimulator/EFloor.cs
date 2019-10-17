@@ -6,7 +6,7 @@ namespace BuildingSimulator
 {
     public class EFloor: ILocation
     {
-        public List<Visitor> Visitors { get {return Visitors;} set {Visitors.OrderBy(x => x.PriorityNumber);} }
+        public List<Visitor> Visitors { get {return Visitors;} set {} }
         public Office[] offices;
         private int maxCapacity;
         private int number;
@@ -20,7 +20,7 @@ namespace BuildingSimulator
         {
             // var capacities = Capacities.Instance();
             // this.maxCapacity = capacities.Get("Floor");
-            maxCapacity = 250;
+            maxCapacity = 100;
             int i = 0;
             while (i < 10)
             {

@@ -7,7 +7,7 @@ namespace BuildingSimulator
 
     public class Lift
     {
-        List<Visitor> Visitors { get {return Visitors;} set {Visitors.OrderBy(x => x.PriorityNumber);} }
+        List<Visitor> Visitors { get {return Visitors;} set {} }
 
         ILocation currentFloor { get{ return LocationFactory.GetLocation(floorNumber); } }
         private int maxCapacity;
@@ -19,7 +19,7 @@ namespace BuildingSimulator
         public Lift()
         {
             var capacities = Capacities.Instance();
-            maxCapacity = 500;
+            maxCapacity = 100;
             cycles = 10;
         }
 
@@ -27,7 +27,7 @@ namespace BuildingSimulator
         {
             while (cycles > 0)
             {
-                moveUp();
+                // moveUp();
                 // moveDown();       
             }
         }
@@ -46,16 +46,16 @@ namespace BuildingSimulator
             return visitor;
         }
 
-        private void moveUp()
+        public void moveUp()
         {
             while (currentFloor != null)
             {
-                while (IsThereSpace)
+                while (IsThereSpace && currentFloor.CurrentCapacity != 0)
                 {
                     Enter(currentFloor.Exit());
                 }
 
-                while (currentFloor.IsThereSpace)
+                while (currentFloor.IsThereSpace && CurrentCapacity != 0)
                 {
                     currentFloor.Enter(Exit());
                 }
@@ -63,7 +63,7 @@ namespace BuildingSimulator
             }
         }
 
-        private void moveDown()
+        public void moveDown()
         {
             floorNumber--;
             while (floorNumber > 0)

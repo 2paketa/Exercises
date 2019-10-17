@@ -15,11 +15,11 @@ namespace BuildingSimulatorTests
             //Arrange
             Lift lift = new Lift();
             var gFloor = LocationFactory.GetLocation(0);
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 50; i++)
                 gFloor.Enter(new Visitor());
             int expected = 0;
             //Act
-            lift.Operate();
+            lift.moveUp();
             int actual = lift.floorNumber;
             //Assert
             Assert.Equal(expected, actual);
