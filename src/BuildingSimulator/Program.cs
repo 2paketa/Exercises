@@ -7,7 +7,7 @@ namespace BuildingSimulator
         static void Main(string[] args)
         {
             var capacities = Capacities.Instance();
-            Building building = new Building(capacities.Get("Building"));
+            Building building = new Building();
             building.Main();
         }
     }

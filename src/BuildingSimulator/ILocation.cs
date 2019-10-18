@@ -7,8 +7,6 @@ namespace BuildingSimulator
     {
         List<Visitor> WelcomeRoom { get; set; }
         int CurrentCapacity { get; }
-        int MaxCapacity { get; }
-
         bool IsThereSpace { get; set; }
 
         Visitor Exit();

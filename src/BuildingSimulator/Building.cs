@@ -6,29 +6,42 @@ namespace BuildingSimulator
 {
     public class Building
     {
-        List<Visitor> visitors;
+        
         public int CurrentCapacity { get; set; }
         readonly int MaxCapacity;
-        public Building(int MaxCapacity)
+        Capacities capacities;
+        public Building()
         {
-            this.MaxCapacity = MaxCapacity;
+            capacities = Capacities.Instance();
+            this.MaxCapacity = capacities.Get("Building");
         }
 
         public  void Main()
         {
+            Random random = new Random();
+            groundFloor = LocationFactory.GetLocation(0) as GroundFloor;
             int i = 1;
-            while (i < eFloor.Length)
+            while (i <= eFloor.Length)
             {
                 var newFloor = LocationFactory.GetLocation(i) as EFloor;
                 eFloor[i - 1] = newFloor;
                 i++;
             }
-            groundFloor = LocationFactory.GetLocation(0) as GroundFloor;
+
+            var kVisitors = capacities.Get("Visitors");
+
+            while (kVisitors < 0)
+            {
+                if (CurrentCapacity < MaxCapacity)
+                {
+                    groundFloor.Enter(new Visitor(random.Next(1, eFloor.Length), random.Next(0, 9)));
+                }
+                
+            }
             lift = new Lift();
             lift.Operate();
-            
-            Console.WriteLine(eFloor[3].officesCurrentCapacity.ToString());
         }
+
 
         EFloor[] eFloor = new EFloor[4];
         GroundFloor groundFloor;

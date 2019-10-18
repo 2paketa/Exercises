@@ -39,7 +39,7 @@ namespace BuildingCommon
             return input;
         }
 
-        public static int UserInput(int comparable, string error, Func<int, bool> condition)
+        public static int UserInput(string error, Func<int, bool> condition)
         {
             int input = Console.ReadLine().GetValidInt();
 

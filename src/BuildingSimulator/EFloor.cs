@@ -9,7 +9,6 @@ namespace BuildingSimulator
         public List<Visitor> WelcomeRoom { get; set; }
         public Office[] offices = new Office[10];
         private int maxCapacity;
-        private int number;
         Random random = new Random();
         public int CurrentCapacity {
             get
@@ -27,7 +26,6 @@ namespace BuildingSimulator
                 return officesCurrentCapacity;
             }
         }
-        public int MaxCapacity { get {return maxCapacity;}}
 
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
 
@@ -62,7 +60,7 @@ namespace BuildingSimulator
         
         public Visitor Exit()
         {
-            Visitor visitor = offices[random.Next(offices.Length - 1)].Exit();
+            Visitor visitor = offices[random.Next(offices.Length)].Exit();
             return visitor;
         }
     }

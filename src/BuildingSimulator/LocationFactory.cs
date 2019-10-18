@@ -16,15 +16,12 @@ namespace BuildingSimulator
                      gFloor = new GroundFloor();
                  }
                  return gFloor;
-                case var d when (floorNumber + 1) > eFloors.Length:
+                case var d when floorNumber > eFloors.Length:
                  return null;
                 default:
                 if (eFloors[floorNumber - 1] == null)
                 {
-                    for (int i = 0; i < eFloors.Length; i++)
-                    {
-                        eFloors[i] = new EFloor();
-                    }
+                    eFloors[floorNumber - 1] = new EFloor();
                 }
                  return eFloors[floorNumber - 1];
             }

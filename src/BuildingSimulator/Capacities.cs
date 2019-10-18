@@ -4,7 +4,7 @@ using BuildingCommon;
 
 namespace BuildingSimulator
 {
-    public sealed class Capacities
+    public class Capacities
     {
         private static Capacities instance = null;
         static Dictionary<string,int> dict;
@@ -45,7 +45,7 @@ namespace BuildingSimulator
         public static void Set()
         {
             Console.WriteLine("Enter building capacity: ");
-            Building = BuildingCommon.BuildingCommon.UserInput(33, "Building capacity should be more than 33", (x) => x < 30);
+            Building = BuildingCommon.BuildingCommon.UserInput("Building capacity should be more than 33", (x) => x < 30);
 
             Console.WriteLine("Enter Groundfloor capacity: ");
             GroundFloor = BuildingCommon.BuildingCommon.UserInput(Building / 2, "Groundfloor capacity should be between 1 and ");
@@ -54,10 +54,10 @@ namespace BuildingSimulator
             Floor = BuildingCommon.BuildingCommon.UserInput(Building / 3, "floor capacity should be between 1 and ");
 
             Console.WriteLine("Enter office capacity: ");
-            Office = BuildingCommon.BuildingCommon.UserInput(Floor, "Office capacity should be less than " + Floor + ": ", (x) => x >= Floor);
+            Office = BuildingCommon.BuildingCommon.UserInput("Office capacity should be less than " + Floor + ": ", (x) => x >= Floor);
 
             Console.WriteLine("Enter lift capacity: ");
-            Lift = BuildingCommon.BuildingCommon.UserInput(Office, "lift capacity should be more than " + Office + ": ", (x) => x < Office);
+            Lift = BuildingCommon.BuildingCommon.UserInput("lift capacity should be more than " + Office + ": ", (x) => x < Office);
 
             Console.WriteLine("Enter lift operating cycles: ");
             Cycles = Console.ReadLine().GetValidInt();

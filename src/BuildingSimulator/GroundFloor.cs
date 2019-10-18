@@ -7,7 +7,7 @@ namespace BuildingSimulator
     public class GroundFloor: ILocation
     {
         private int maxCapacity;
-
+        public List<Visitor> WelcomeRoom { get; set; }
         public GroundFloor()
         {
             // var capacities = Capacities.Instance();
@@ -16,14 +16,16 @@ namespace BuildingSimulator
             WelcomeRoom = new List<Visitor>();
         }
 
-        public List<Visitor> WelcomeRoom { get; set; }
         public int CurrentCapacity { get { return WelcomeRoom.Count;}}
-        public int MaxCapacity { get {return maxCapacity;} }
 
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
 
         public void Enter(Visitor visitor)
         {
+            if (IsThereSpace)
+            {
+                
+            }
             WelcomeRoom.Add(visitor);
         }
         
