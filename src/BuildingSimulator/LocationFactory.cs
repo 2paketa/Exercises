@@ -16,7 +16,7 @@ namespace BuildingSimulator
                      gFloor = new GroundFloor();
                  }
                  return gFloor;
-                case var d when floorNumber > eFloors.Length:
+                case var d when (floorNumber + 1) > eFloors.Length:
                  return null;
                 default:
                 if (eFloors[floorNumber - 1] == null)

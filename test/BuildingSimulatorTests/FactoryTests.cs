@@ -11,11 +11,11 @@ namespace BuildingSimulatorTests
         public void Test1()
         {
             //Arrange
-            ILocation expected = null;
+            var expected = new EFloor();
             //Act
-            var actual = LocationFactory.GetLocation(5);
+            var actual = LocationFactory.GetLocation(6);
             //Assert
-            ILocation.ReferenceEquals(expected, actual);
+            Assert.Null(actual);
         }
     }
 }

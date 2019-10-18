@@ -25,8 +25,9 @@ namespace BuildingSimulator
             }
             groundFloor = LocationFactory.GetLocation(0) as GroundFloor;
             lift = new Lift();
-            // lift.Operate();
+            lift.Operate();
             
+            Console.WriteLine(eFloor[3].officesCurrentCapacity.ToString());
         }
 
         EFloor[] eFloor = new EFloor[4];

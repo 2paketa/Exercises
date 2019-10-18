@@ -6615,40 +6615,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Manos\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\m.prekas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Manos\\Source\\Repos\\Exercises\\test\\BuildingSimulatorTests\\BuildingSimulatorTests.csproj",
+      "projectUniqueName": "C:\\Users\\m.prekas\\Exercises\\test\\BuildingSimulatorTests\\BuildingSimulatorTests.csproj",
       "projectName": "BuildingSimulatorTests",
-      "projectPath": "C:\\Users\\Manos\\Source\\Repos\\Exercises\\test\\BuildingSimulatorTests\\BuildingSimulatorTests.csproj",
-      "packagesPath": "C:\\Users\\Manos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Manos\\Source\\Repos\\Exercises\\test\\BuildingSimulatorTests\\obj\\",
+      "projectPath": "C:\\Users\\m.prekas\\Exercises\\test\\BuildingSimulatorTests\\BuildingSimulatorTests.csproj",
+      "packagesPath": "C:\\Users\\m.prekas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\m.prekas\\Exercises\\test\\BuildingSimulatorTests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Manos\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\m.prekas\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\Manos\\Source\\Repos\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj": {
-              "projectPath": "C:\\Users\\Manos\\Source\\Repos\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj"
+            "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj": {
+              "projectPath": "C:\\Users\\m.prekas\\Exercises\\Common\\BuldingCommon\\BuldingCommon.csproj"
             },
-            "C:\\Users\\Manos\\Source\\Repos\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj": {
-              "projectPath": "C:\\Users\\Manos\\Source\\Repos\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj"
+            "C:\\Users\\m.prekas\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj": {
+              "projectPath": "C:\\Users\\m.prekas\\Exercises\\src\\BuildingSimulator\\BuildingSimulator.csproj"
             }
           }
         }

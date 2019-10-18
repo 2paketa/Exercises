@@ -7,7 +7,7 @@ namespace BuildingSimulator
     public class EFloor: ILocation
     {
         public List<Visitor> WelcomeRoom { get; set; }
-        private Office[] offices = new Office[10];
+        public Office[] offices = new Office[10];
         private int maxCapacity;
         private int number;
         Random random = new Random();
@@ -47,7 +47,7 @@ namespace BuildingSimulator
 
         public void Enter(Visitor visitor)
         {
-            var officeToEnter = offices[visitor.FloorNumber];
+            Office officeToEnter = offices[visitor.OfficeNumber];
 
             if (officeToEnter.IsThereSpace)
             {

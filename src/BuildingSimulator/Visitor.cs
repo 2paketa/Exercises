@@ -7,7 +7,7 @@ namespace BuildingSimulator
         public int FloorNumber { get; set; }
         public int OfficeNumber { get; set; }
         public int PriorityNumber { get; set; }
-
+        public bool Served { get; set; }
         static int priorityNumber;
 
         Random random = new Random();

@@ -16,9 +16,11 @@ namespace BuildingSimulator
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;}}
         public Lift()
         {
-            //var capacities = Capacities.Instance();
+            var capacities = Capacities.Instance();
             Visitors = new List<Visitor>();
-            maxCapacity = 50;
+            // maxCapacity = capacities.Get("Lift");
+            // cycles = capacities.Get("Cycles");
+            maxCapacity = 100;
             cycles = 10;
         }
 
@@ -53,39 +55,41 @@ namespace BuildingSimulator
                         Enter(currentFloor.Exit());
                     }
                 }
-            else
-            {
-                while (currentFloor.IsThereSpace && CurrentCapacity != 0)
+                else
                 {
-                    Visitor visitor = Exit();
-                    if (visitor == null)
+                    while (currentFloor.IsThereSpace && CurrentCapacity != 0)
                     {
-                        break;
+                        Visitor visitor = Exit();
+                        if (visitor == null)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            currentFloor.Enter(visitor);
+                        }
+                        
                     }
-                    currentFloor.Enter(Exit());
-                }
-
-            }
+                }   
             floorNumber++;
             }
-        floorNumber--;
         }
 
-        //private void moveDown()
-        //{
-        //    while (floorNumber > 0)
-        //    {
-        //        while (IsThereSpace)
-        //        {
-        //            Enter(currentFloor.Exit());
-        //        }
+        private void moveDown()
+        {
+           while (floorNumber > 0)
+           {
+               while (IsThereSpace)
+               {
+                   Enter(currentFloor.Exit());
+               }
 
-        //        while (currentFloor.IsThereSpace)
-        //        {
-        //            currentFloor.Enter(Exit());
-        //        }
-        //        floorNumber--;
-        //    }
-        //}
+               while (currentFloor.IsThereSpace)
+               {
+                   currentFloor.Enter(Exit());
+               }
+               floorNumber--;
+           }
+        }
     }
 }

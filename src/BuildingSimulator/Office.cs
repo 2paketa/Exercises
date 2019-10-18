@@ -23,7 +23,9 @@ namespace BuildingSimulator
 
         public Visitor Exit()
         {
-           return Visitors.Dequeue();
+           Visitor visitor = Visitors.Dequeue();
+           visitor.Served = true;
+           return visitor;
         }
     }
 }
