@@ -7,17 +7,8 @@ namespace BuildingSimulator
     public class Lift
     {
         public List<Visitor> Visitors { get; set; }
-        ILocation currentFloor { get { return LocationFactory.GetLocation(floorNumber); } }
+        ILocation currentFloor { get { return LocationSingletory.GetLocation(floorNumber); } }
         private int maxCapacity;
-        public bool GoingDown 
-        { get 
-            { if (floorNumber != 0)
-                GoingDown = true;
-                else GoingDown = false; 
-              return GoingDown; 
-            } 
-            set {} 
-        }
         public int CurrentCapacity { get {return Visitors.Count;} }
         private int cycles;
         public int MaxCapacity { get {return maxCapacity;} }
@@ -25,12 +16,10 @@ namespace BuildingSimulator
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;}}
         public Lift()
         {
-            //var capacities = Capacities.Instance();
+            var capacities = Capacities.Instance();
             Visitors = new List<Visitor>();
-            // maxCapacity = capacities.Get("Lift");
-            // cycles = capacities.Get("Cycles");
-            maxCapacity = 100;
-            cycles = 10;
+            maxCapacity = capacities.Get("Lift");
+            cycles = capacities.Get("Cycles");
         }
 
         public void Operate()
@@ -50,7 +39,15 @@ namespace BuildingSimulator
         
         public Visitor Exit()
         {
-            Visitor visitor = Visitors.TakeWhile(x => x.FloorNumber == floorNumber).FirstOrDefault();
+            Visitor visitor;
+            if (currentFloor is GroundFloor)
+            {
+                visitor = Visitors.Where(x => x.Served).FirstOrDefault();
+            }
+            else
+            {
+                visitor = Visitors.Where(x => x.FloorNumber == floorNumber).FirstOrDefault();
+            }
             Visitors.Remove(visitor);
             return visitor;
         }
@@ -71,7 +68,7 @@ namespace BuildingSimulator
                 {
                     while (currentFloor.IsThereSpace && CurrentCapacity != 0)
                     {
-                        Visitor visitor = Exit();
+                        var visitor = Exit();
                         if (visitor == null)
                         {
                             break;
@@ -90,18 +87,11 @@ namespace BuildingSimulator
 
         private void moveDown()
         {
-            while (floorNumber >= 0)
+            while (currentFloor != null)
             {
                 if (currentFloor is GroundFloor)
                 {
-                    while (IsThereSpace && currentFloor.CurrentCapacity > 0)
-                    {
-                        Enter(currentFloor.Exit());
-                    }
-                }
-                else
-                {
-                    while (currentFloor.IsThereSpace && CurrentCapacity != 0)
+                    while (currentFloor.IsThereSpace && CurrentCapacity > 0)
                     {
                         Visitor visitor = Exit();
                         if (visitor == null)
@@ -112,8 +102,24 @@ namespace BuildingSimulator
                         {
                             currentFloor.Enter(visitor);
                         }
-
                     }
+                    Console.WriteLine($"Groundfloor capacity = {currentFloor.CurrentCapacity}");
+                }
+                else
+                {
+                    while (IsThereSpace && currentFloor.CurrentCapacity > 0)
+                    {
+                        Visitor visitor = currentFloor.Exit();
+                        if (visitor == null)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Enter(visitor);
+                        }
+                    }
+                    Console.WriteLine($"Groundfloor capacity = {currentFloor.CurrentCapacity}");
                 }
                 floorNumber--;
             }

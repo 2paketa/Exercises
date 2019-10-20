@@ -20,7 +20,7 @@ namespace BuildingSimulatorTests
             int i = 1;
             while (i <= eFloor.Length)
             {
-                var newFloor = LocationFactory.GetLocation(i) as EFloor;
+                var newFloor = LocationSingletory.GetLocation(i) as EFloor;
                 eFloor[i - 1] = newFloor;
                 i++;
             }

@@ -11,9 +11,9 @@ namespace BuildingSimulatorTests
         public void Test1()
         {
             //Arrange
-            var expected = new EFloor();
+            var expected = LocationSingletory.GetLocation(1);
             //Act
-            var actual = LocationFactory.GetLocation(6);
+            var actual = LocationSingletory.GetLocation(6);
             //Assert
             Assert.Null(actual);
         }

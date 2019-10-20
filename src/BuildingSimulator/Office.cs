@@ -8,11 +8,13 @@ namespace BuildingSimulator
     {
         public Office()
         {
+            var capacities = Capacities.Instance();
             Visitors = new Queue<Visitor>();
+            this.MaxCapacity = capacities.Get("Office");
         }
 
         Queue<Visitor> Visitors { get; set; }
-        public int CurrentCapacity { get; set; }
+        public int CurrentCapacity { get { return Visitors.Count; } }
         public int MaxCapacity { get; set; }
         public bool IsThereSpace { get { if (CurrentCapacity < MaxCapacity) return true; else return false; } }
 

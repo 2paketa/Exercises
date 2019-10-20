@@ -29,18 +29,22 @@ namespace BuildingSimulator
 
         public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
 
-        public EFloor()
+        private EFloor()
         {
-            // var capacities = Capacities.Instance();
-            // this.maxCapacity = capacities.Get("Floor");
+            var capacities = Capacities.Instance();
+            this.maxCapacity = capacities.Get("Floor");
             WelcomeRoom = new List<Visitor>();
-            maxCapacity = 99;
             int i = 0;
             while (i < 10)
             {
                 offices[i] = new Office();
                 i++;
             }
+        }
+
+        public static EFloor Get()
+        {
+            return new EFloor();
         }
 
         public void Enter(Visitor visitor)
@@ -50,6 +54,7 @@ namespace BuildingSimulator
             if (officeToEnter.IsThereSpace)
             {
                 officeToEnter.Enter(visitor);
+                //Console.WriteLine($"Entering office {officeToEnter}");
             }
             else
             {
@@ -57,10 +62,27 @@ namespace BuildingSimulator
             }
              
         }
+
+        private void welcomeRoomtoOfficeNumber(int officeNumber)
+        {
+            var welcomeRoomToOffice = WelcomeRoom.Where(x => x.OfficeNumber == officeNumber);
+            if (WelcomeRoom.Count > 0 &&  welcomeRoomToOffice != null)
+            {
+                Visitor visitor = WelcomeRoom.FirstOrDefault();
+                WelcomeRoom.Remove(visitor);
+                offices[officeNumber].Enter(visitor);
+            }
+        }
         
         public Visitor Exit()
         {
-            Visitor visitor = offices[random.Next(offices.Length)].Exit();
+            var currentVisitors = offices.Where(x => x.CurrentCapacity > 0).ToList();
+            if (currentVisitors.Count == 0)
+            {
+                return null;
+            }
+            Visitor visitor = currentVisitors.ElementAt(random.Next(currentVisitors.Count)).Exit();
+            welcomeRoomtoOfficeNumber(visitor.OfficeNumber);
             return visitor;
         }
     }

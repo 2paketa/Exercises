@@ -6,9 +6,8 @@ namespace BuildingSimulator
     {
         public int FloorNumber { get; set; }
         public int OfficeNumber { get; set; }
-        public int PriorityNumber { get; set; }
+        public int? PriorityNumber { get; set; }
         public bool Served { get; set; }
-        static int priorityNumber;
 
         Random random = new Random();
 
@@ -16,9 +15,11 @@ namespace BuildingSimulator
         {
             this.FloorNumber = floorNumber;
             this.OfficeNumber = officeNumber;
-            this.PriorityNumber = priorityNumber;
-            priorityNumber++;
         }
 
+        public override string ToString()
+        {
+            return $"{PriorityNumber} Floor: {FloorNumber}, Office: {OfficeNumber}";
+        }
     }
 }
