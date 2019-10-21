@@ -1,16 +1,17 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BuildingSimulator
 {
-    public class EFloor: ILocation
+    public class EFloor : ILocation
     {
         public List<Visitor> WelcomeRoom { get; set; }
         public Office[] offices = new Office[10];
         private int maxCapacity;
         Random random = new Random();
-        public int CurrentCapacity {
+        public int CurrentCapacity
+        {
             get
             {
                 return WelcomeRoom.Count + officesCurrentCapacity;
@@ -18,7 +19,7 @@ namespace BuildingSimulator
         }
         public int officesCurrentCapacity
         {
-            get 
+            get
             {
                 int officesCurrentCapacity = 0;
                 for (int i = 0; i < offices.Length; i++)
@@ -27,7 +28,7 @@ namespace BuildingSimulator
             }
         }
 
-        public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
+        public bool IsThereSpace { get { if (CurrentCapacity < maxCapacity) return true; else return false; } set { } }
 
         private EFloor()
         {
@@ -60,20 +61,20 @@ namespace BuildingSimulator
             {
                 WelcomeRoom.Add(visitor);
             }
-             
+
         }
 
         private void welcomeRoomtoOfficeNumber(int officeNumber)
         {
             var welcomeRoomToOffice = WelcomeRoom.Where(x => x.OfficeNumber == officeNumber);
-            if (WelcomeRoom.Count > 0 &&  welcomeRoomToOffice != null)
+            if (WelcomeRoom.Count > 0 && welcomeRoomToOffice != null)
             {
                 Visitor visitor = WelcomeRoom.FirstOrDefault();
                 WelcomeRoom.Remove(visitor);
                 offices[officeNumber].Enter(visitor);
             }
         }
-        
+
         public Visitor Exit()
         {
             var currentVisitors = offices.Where(x => x.CurrentCapacity > 0).ToList();

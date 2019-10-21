@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq; 
 
 namespace BuildingSimulator
 {
@@ -20,14 +18,14 @@ namespace BuildingSimulator
 
         public void Enter(Visitor visitor)
         {
-           Visitors.Enqueue(visitor);
+            Visitors.Enqueue(visitor);
         }
 
         public Visitor Exit()
         {
-           Visitor visitor = Visitors.Dequeue();
-           visitor.Served = true;
-           return visitor;
+            Visitor visitor = Visitors.Dequeue();
+            visitor.Served = true;
+            return visitor;
         }
     }
 }

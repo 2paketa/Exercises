@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BuildingSimulator
+﻿namespace BuildingSimulator
 {
     class Program
     {

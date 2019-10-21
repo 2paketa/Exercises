@@ -1,9 +1,5 @@
-using System;
-using Xunit;
-using BuildingCommon;
 using BuildingSimulator;
-using System.Collections.Generic;
-using System.Linq;
+using Xunit;
 
 namespace BuildingSimulatorTests
 {

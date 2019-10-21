@@ -3,8 +3,8 @@
     "",
     "\\Common",
     "\\src",
-    "\\src\\BuildingSimulator"
+    "\\src\\BuldingSimulatorWPF"
   ],
-  "SelectedNode": "\\src\\BuildingSimulator\\Capacities.cs",
+  "SelectedNode": "\\src\\BuldingSimulatorWPF",
   "PreviewInSolutionExplorer": false
 }

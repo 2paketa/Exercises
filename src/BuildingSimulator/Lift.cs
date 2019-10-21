@@ -1,6 +1,5 @@
-using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BuildingSimulator
 {
@@ -9,11 +8,11 @@ namespace BuildingSimulator
         public List<Visitor> Visitors { get; set; }
         ILocation currentFloor { get { return LocationSingletory.GetLocation(floorNumber); } }
         private int maxCapacity;
-        public int CurrentCapacity { get {return Visitors.Count;} }
+        public int CurrentCapacity { get { return Visitors.Count; } }
         private int cycles;
-        public int MaxCapacity { get {return maxCapacity;} }
+        public int MaxCapacity { get { return maxCapacity; } }
         public int floorNumber;
-        public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;}}
+        public bool IsThereSpace { get { if (CurrentCapacity < maxCapacity) return true; else return false; } }
         public Lift()
         {
             var capacities = Capacities.Instance();
@@ -36,7 +35,7 @@ namespace BuildingSimulator
         {
             Visitors.Add(visitor);
         }
-        
+
         public Visitor Exit()
         {
             Visitor visitor;
@@ -54,10 +53,10 @@ namespace BuildingSimulator
 
         private void moveUp()
         {
-            
+
             while (currentFloor != null)
             {
-                if (currentFloor is GroundFloor) 
+                if (currentFloor is GroundFloor)
                 {
                     while (IsThereSpace && currentFloor.CurrentCapacity > 0)
                     {
@@ -77,10 +76,10 @@ namespace BuildingSimulator
                         {
                             currentFloor.Enter(visitor);
                         }
-                        
+
                     }
-                }   
-             floorNumber++;
+                }
+                floorNumber++;
             }
             floorNumber--;
         }
@@ -103,7 +102,6 @@ namespace BuildingSimulator
                             currentFloor.Enter(visitor);
                         }
                     }
-                    Console.WriteLine($"Groundfloor capacity = {currentFloor.CurrentCapacity}");
                 }
                 else
                 {
@@ -119,7 +117,6 @@ namespace BuildingSimulator
                             Enter(visitor);
                         }
                     }
-                    Console.WriteLine($"Groundfloor capacity = {currentFloor.CurrentCapacity}");
                 }
                 floorNumber--;
             }

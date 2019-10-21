@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace BuildingSimulator
@@ -11,5 +10,5 @@ namespace BuildingSimulator
 
         Visitor Exit();
         void Enter(Visitor visitor);
-    }    
+    }
 }

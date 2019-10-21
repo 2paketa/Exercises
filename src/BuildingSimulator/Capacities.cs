@@ -1,13 +1,13 @@
-﻿using System;
+﻿using BuildingCommon;
+using System;
 using System.Collections.Generic;
-using BuildingCommon;
 
 namespace BuildingSimulator
 {
     public class Capacities
     {
         private static Capacities instance = null;
-        static Dictionary<string,int> dict;
+        static Dictionary<string, int> dict;
         static int Building;
         static int GroundFloor;
         static int Office;
@@ -16,11 +16,12 @@ namespace BuildingSimulator
         static int Cycles;
         static int Visitors;
 
-        private Capacities(){
+        private Capacities()
+        {
             Set();
             dict = new Dictionary<string, int>();
             dict.Add("Building", Building);
-            dict.Add("Groundfloor",GroundFloor);
+            dict.Add("Groundfloor", GroundFloor);
             dict.Add("Floor", Floor);
             dict.Add("Office", Office);
             dict.Add("Lift", Lift);
@@ -29,15 +30,15 @@ namespace BuildingSimulator
         }
 
         public static Capacities Instance()
-        {               
+        {
             if (instance == null)
-              {
-                  instance = new Capacities();
-              }
+            {
+                instance = new Capacities();
+            }
             return instance;
         }
 
-        public int Get(string location) 
+        public int Get(string location)
         {
             return dict[location];
         }
@@ -49,7 +50,7 @@ namespace BuildingSimulator
 
             Console.WriteLine("Enter Groundfloor capacity: ");
             GroundFloor = BuildingCommon.BuildingCommon.UserInput(Building / 2, "Groundfloor capacity should be between 1 and ");
-            
+
             Console.WriteLine("Enter floor capacity: ");
             Floor = BuildingCommon.BuildingCommon.UserInput(Building / 3, "floor capacity should be between 1 and ");
 

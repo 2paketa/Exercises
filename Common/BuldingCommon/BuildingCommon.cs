@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BuildingCommon
 {
@@ -13,7 +9,7 @@ namespace BuildingCommon
         {
             int number = 0;
             var regexItem = new Regex(@"^\d+$");
-            while (number == 0) 
+            while (number == 0)
             {
                 if (regexItem.IsMatch(e)) { number = int.Parse(e); }
                 else

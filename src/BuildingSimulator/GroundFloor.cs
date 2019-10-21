@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BuildingSimulator
 {
-    public class GroundFloor: ILocation
+    public class GroundFloor : ILocation
     {
         private int maxCapacity;
         private static GroundFloor instance;
@@ -14,24 +14,24 @@ namespace BuildingSimulator
 
         public static GroundFloor Get()
         {
-            if (instance == null) 
+            if (instance == null)
             {
-                instance = new GroundFloor();    
+                instance = new GroundFloor();
             }
             return instance;
         }
 
         private GroundFloor()
         {
-             var capacities = Capacities.Instance();
-             this.maxCapacity = capacities.Get("Groundfloor");
+            var capacities = Capacities.Instance();
+            this.maxCapacity = capacities.Get("Groundfloor");
             WelcomeRoom = new List<Visitor>();
             waitingRoom = new Queue<Visitor>();
         }
 
-        public int CurrentCapacity { get { return WelcomeRoom.Count;}}
+        public int CurrentCapacity { get { return WelcomeRoom.Count; } }
 
-        public bool IsThereSpace { get {if (CurrentCapacity < maxCapacity) return true; else return false;} set{}}
+        public bool IsThereSpace { get { if (CurrentCapacity < maxCapacity) return true; else return false; } set { } }
 
         public void Enter(Visitor visitor)
         {
@@ -39,7 +39,7 @@ namespace BuildingSimulator
             {
                 Console.WriteLine($"I can't believe I finished, priority number {visitor.PriorityNumber}");
             }
-            else if(IsThereSpace == false)
+            else if (IsThereSpace == false)
             {
                 waitingRoom.Enqueue(visitor);
             }
@@ -51,13 +51,13 @@ namespace BuildingSimulator
             }
 
         }
-        
+
         public Visitor Exit()
         {
             Visitor visitor = WelcomeRoom.FirstOrDefault();
             WelcomeRoom.Remove(visitor);
             if (waitingRoom.Count > 0)
-            { 
+            {
                 Enter(waitingRoom.Dequeue());
             }
             return visitor;

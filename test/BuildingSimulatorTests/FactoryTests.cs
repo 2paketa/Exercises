@@ -1,7 +1,5 @@
-using System;
-using Xunit;
-using BuildingCommon;
 using BuildingSimulator;
+using Xunit;
 
 namespace BuildingSimulatorTests
 {
