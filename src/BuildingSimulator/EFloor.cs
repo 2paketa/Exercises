@@ -10,6 +10,7 @@ namespace BuildingSimulator
         public Office[] offices = new Office[10];
         private int maxCapacity;
         Random random = new Random();
+        static EFloor[] eFloors;
         public int CurrentCapacity
         {
             get
@@ -32,8 +33,7 @@ namespace BuildingSimulator
 
         private EFloor()
         {
-            var capacities = Capacities.Instance();
-            this.maxCapacity = capacities.Get("Floor");
+            this.maxCapacity = Capacities.Get("Floor");
             WelcomeRoom = new List<Visitor>();
             int i = 0;
             while (i < 10)
@@ -43,10 +43,32 @@ namespace BuildingSimulator
             }
         }
 
-        public static EFloor Get()
+        public static EFloor Get(int floorNumber)
         {
-            return new EFloor();
+            eFloors = new EFloor[Capacities.Get("NumberOfFloors")];
+            if  (floorNumber > eFloors.Length || floorNumber < 0) { return null; }
+            if (eFloors[floorNumber - 1] == null)
+            {
+                eFloors[floorNumber - 1] = new EFloor();
+            }
+            return eFloors[floorNumber - 1];
         }
+
+        //private int[] generateOfficesCapacity(int nOffice)
+        //{
+        //    random = new Random();
+        //    var getCapacities = new int[10];
+        //    while (getCapacities.Min() == 0)
+        //    {
+        //        int maxCap = nOffice;
+        //        for (int i = 0; i < getCapacities.Length; i++)
+        //        {
+        //            getCapacities[i] = random.Next(maxCap);
+        //            maxCap -= getCapacities[i];
+        //        }
+        //    }
+        //    return getCapacities;
+        //}
 
         public void Enter(Visitor visitor)
         {

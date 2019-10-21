@@ -18,18 +18,17 @@ namespace BuildingSimulator
         }
         readonly int MaxCapacity;
         public bool IsThereSpace { get { if (CurrentCapacity < MaxCapacity) return true; else return false; } set { } }
-        Capacities capacities;
-        EFloor[] eFloor = new EFloor[4];
+        EFloor[] eFloor;
         GroundFloor groundFloor;
         Lift lift;
         public Building()
         {
-            capacities = Capacities.Instance();
-            this.MaxCapacity = capacities.Get("Building");
+            this.MaxCapacity = Capacities.Get("Building");
         }
 
         public void Main()
         {
+            eFloor = new EFloor[Capacities.Get("NumberOfFloors")];
             lift = new Lift();
             groundFloor = LocationSingletory.GetLocation(0) as GroundFloor;
             int i = 1;
@@ -44,10 +43,10 @@ namespace BuildingSimulator
             printStats();
         }
 
-        public void getVisitors()
+        private void getVisitors()
         {
             Random random = new Random();
-            var kVisitors = capacities.Get("Visitors");
+            var kVisitors = Capacities.Get("Visitors");
             while (kVisitors > 0)
             {
                 Visitor visitor = new Visitor(random.Next(1, (eFloor.Length + 1)), random.Next(0, 9));
@@ -61,17 +60,17 @@ namespace BuildingSimulator
                 }
                 kVisitors--;
             }
-            Console.WriteLine($"Visitors waiting to enter lift: {groundFloor.CurrentCapacity}");
         }
 
 
-        public void printStats()
+        private void printStats()
         {
             Console.WriteLine("Visitors in the building = " + CurrentCapacity + ", Visitors in Groundfloor = " + groundFloor.CurrentCapacity + ", Visitors in the Lift = " + lift.CurrentCapacity);
             //Console.WriteLine("Visitors served = " + VisitorsServed + ", Remaining visitors = " + buildingVisitors.Count);
             for (var i = 0; i < eFloor.Length; i++)
             {
                 Console.WriteLine($"Visitors in floor number {i + 1} = {eFloor[i].CurrentCapacity}");
+                Console.WriteLine($"Visitors in floor number {i + 1} offices = {eFloor[i].officesCurrentCapacity}");
                 Console.WriteLine($"Visitors in floor Welcome room = {eFloor[i].WelcomeRoom.Count}");
             }
         }

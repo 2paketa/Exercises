@@ -15,10 +15,9 @@ namespace BuildingSimulator
         public bool IsThereSpace { get { if (CurrentCapacity < maxCapacity) return true; else return false; } }
         public Lift()
         {
-            var capacities = Capacities.Instance();
             Visitors = new List<Visitor>();
-            maxCapacity = capacities.Get("Lift");
-            cycles = capacities.Get("Cycles");
+            maxCapacity = Capacities.Get("Lift");
+            cycles = Capacities.Get("Cycles");
         }
 
         public void Operate()

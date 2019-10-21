@@ -23,8 +23,7 @@ namespace BuildingSimulator
 
         private GroundFloor()
         {
-            var capacities = Capacities.Instance();
-            this.maxCapacity = capacities.Get("Groundfloor");
+            this.maxCapacity = Capacities.Get("Groundfloor");
             WelcomeRoom = new List<Visitor>();
             waitingRoom = new Queue<Visitor>();
         }

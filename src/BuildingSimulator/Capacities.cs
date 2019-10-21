@@ -6,7 +6,7 @@ namespace BuildingSimulator
 {
     public class Capacities
     {
-        private static Capacities instance = null;
+        static Capacities instance = null;
         static Dictionary<string, int> dict;
         static int Building;
         static int GroundFloor;
@@ -15,18 +15,22 @@ namespace BuildingSimulator
         static int Lift;
         static int Cycles;
         static int Visitors;
+        static int numberOfFloors;
 
         private Capacities()
         {
             Set();
-            dict = new Dictionary<string, int>();
-            dict.Add("Building", Building);
-            dict.Add("Groundfloor", GroundFloor);
-            dict.Add("Floor", Floor);
-            dict.Add("Office", Office);
-            dict.Add("Lift", Lift);
-            dict.Add("Cycles", Cycles);
-            dict.Add("Visitors", Visitors);
+            dict = new Dictionary<string, int>
+            {
+                { "Building", Building },
+                { "Groundfloor", GroundFloor },
+                { "Floor", Floor },
+                { "Office", Office },
+                { "Lift", Lift },
+                { "Cycles", Cycles },
+                { "Visitors", Visitors },
+                { "NumberOfFloors", numberOfFloors }
+            };
         }
 
         public static Capacities Instance()
@@ -38,18 +42,21 @@ namespace BuildingSimulator
             return instance;
         }
 
-        public int Get(string location)
+        public static int Get(string location)
         {
             return dict[location];
         }
 
-        public static void Set()
+        private static void Set()
         {
             Console.WriteLine("Enter building capacity: ");
             Building = BuildingCommon.BuildingCommon.UserInput("Building capacity should be more than 33", (x) => x < 30);
 
             Console.WriteLine("Enter Groundfloor capacity: ");
             GroundFloor = BuildingCommon.BuildingCommon.UserInput(Building / 2, "Groundfloor capacity should be between 1 and ");
+
+            Console.WriteLine("Enter number of Floors");
+            numberOfFloors = Console.ReadLine().GetValidInt();
 
             Console.WriteLine("Enter floor capacity: ");
             Floor = BuildingCommon.BuildingCommon.UserInput(Building / 3, "floor capacity should be between 1 and ");
@@ -59,6 +66,7 @@ namespace BuildingSimulator
 
             Console.WriteLine("Enter lift capacity: ");
             Lift = BuildingCommon.BuildingCommon.UserInput("lift capacity should be more than " + Office + ": ", (x) => x < Office);
+
 
             Console.WriteLine("Enter lift operating cycles: ");
             Cycles = Console.ReadLine().GetValidInt();

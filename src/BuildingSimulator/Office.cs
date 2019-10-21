@@ -6,9 +6,8 @@ namespace BuildingSimulator
     {
         public Office()
         {
-            var capacities = Capacities.Instance();
             Visitors = new Queue<Visitor>();
-            this.MaxCapacity = capacities.Get("Office");
+            this.MaxCapacity = Capacities.Get("Office");
         }
 
         Queue<Visitor> Visitors { get; set; }
