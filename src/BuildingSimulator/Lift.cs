@@ -90,7 +90,7 @@ namespace BuildingSimulator
             {
                 if (currentFloor is GroundFloor)
                 {
-                    while (currentFloor.IsThereSpace && CurrentCapacity > 0)
+                    while (CurrentCapacity > 0)
                     {
                         Visitor visitor = Exit();
                         if (visitor == null)
